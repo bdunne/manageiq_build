@@ -1,0 +1,19 @@
+name: Build Pods
+
+on:
+  workflow_run:
+    workflows: [Build RPMs]
+    types:
+    - completed
+
+jobs:
+  build_pods:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        repository: ManageIQ/manageiq-pods
+    - name: Build pods containers
+      run: |
+        podman version
+        bin/build -t latest -n
