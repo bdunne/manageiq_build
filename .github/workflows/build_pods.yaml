@@ -1,6 +1,7 @@
 name: Build Pods
 
 on:
+  push:
   workflow_run:
     workflows: [Build RPMs]
     types:
