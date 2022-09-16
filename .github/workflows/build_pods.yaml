@@ -15,5 +15,5 @@ jobs:
         repository: ManageIQ/manageiq-pods
     - name: Build pods containers
       run: |
-        podman version
+        sudo apt-get remove docker
         bin/build -t latest -n
